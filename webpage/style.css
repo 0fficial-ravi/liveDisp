@@ -10,7 +10,7 @@ font-family:"JetBrains Mono";
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 #displayBox
@@ -27,6 +27,20 @@ font-family:"JetBrains Mono";
     box-sizing: border-box;
     background-color: black;
     box-shadow: 4px 11px 12px gray;
+}
+.codeBox
+{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.codeBox input
+{
+    width: 900px;
+    text-align: center;
+    color: black;
 }
 .active
 {

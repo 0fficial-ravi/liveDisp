@@ -1,5 +1,7 @@
 const displayBox=document.querySelector("#displayBox");
-
+const bitCodeBox=document.querySelector("#bitCodeBox");
+bitCodeBox.value="";
+let BitCode="";
 
 
 function handlePixelClick(e)
@@ -13,8 +15,8 @@ function handlePixelClick(e)
          e.target.classList.add("pixel")
     }
     e.target.classList.toggle("active");
+    generatePixelBitCode();
 }
-
 
 function createDisplayBoxElements()
 {
@@ -34,3 +36,25 @@ for(let row=0;row<8;row++)
 }
 }
 createDisplayBoxElements();
+
+
+function generatePixelBitCode()
+{
+    BitCode="const byte customSymbol[8]={B";
+    for(let row=0;row<8;row++)
+    {
+        for(let column=0;column<8;column++)
+            {
+                const pixel=document.querySelector(`.row${row}col${column}`);
+                if(pixel.classList.contains("active"))
+                    BitCode+="1";
+                else
+                    BitCode+="0";
+            }
+            if(row!=7)
+            BitCode+=",B";
+            else
+            BitCode+="};"
+    }
+bitCodeBox.value=BitCode;
+}
